@@ -1,4 +1,4 @@
-#tiltscroll [[demo](/)]
+#tiltscroll [[demo](http://sayan.ee/tiltscroll/)]
 
 > Tilt device to scroll a webpage page with configurable options and events.
 
@@ -14,7 +14,6 @@
 	```
 	tiltscroll.init();
 	```
-
 - (optional) pass in various options
 	1.  smoothing
 	- timeout
@@ -31,7 +30,6 @@
 	```
 
 	The above values are set by default and are overridden if the user specifies them.
-
 - (optional) listen for events
 	1. scrolltiltStatusChange
 	- scrollTiltInProgress
