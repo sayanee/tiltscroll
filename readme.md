@@ -1,4 +1,6 @@
-#tiltscroll [[demo](http://sayan.ee/tiltscroll/)]
+#tiltscroll 
+
+###[demo](http://sayan.ee/tiltscroll/) - *open in mobile*
 
 > Tilt device to scroll a webpage page with configurable options and events.
 
