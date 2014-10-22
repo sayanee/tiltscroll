@@ -9,7 +9,9 @@ module.exports = function(grunt) {
         files: [
           'bower.json',
           'package.json',
-          'src/tiltscroll.js'
+          'src/tiltscroll.js',
+          'dist/tiltscroll.js',
+          'dist/tiltscroll.min.js'
         ],
         updateConfigs: [],
         commit: true,
@@ -17,7 +19,9 @@ module.exports = function(grunt) {
         commitFiles: [
           'bower.json',
           'package.json',
-          'src/tiltscroll.js'
+          'src/tiltscroll.js',
+          'dist/tiltscroll.js',
+          'dist/tiltscroll.min.js'
         ],
         createTag: true,
         tagName: '%VERSION%',

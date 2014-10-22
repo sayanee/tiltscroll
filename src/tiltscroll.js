@@ -1,4 +1,4 @@
-/*! tiltscroll Version: 1.0.0 | (C) Sayanee Basu 2014, released under an MIT license */
+/*! tiltscroll Version: 0.9.0 | (C) Sayanee Basu 2014, released under an MIT license */
 (function(root, factory) {
   'use strict';
   if (typeof define === 'function' && define.amd) {
