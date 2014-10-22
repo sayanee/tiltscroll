@@ -1,0 +1,13 @@
+{
+  "name": "tiltscroll",
+  "version": "0.9.0",
+  "description": "Tilt device to scroll a webpage page with configurable options and events.",
+  "main": "./dist/tiltscroll.js",
+  "license": "MIT",
+  "homepage": "http://github.com/sayanee/tiltscroll",
+  "ignore": [
+    ".jshintrc",
+    ".editorconfig",
+    ".jscsrc"
+  ]
+}

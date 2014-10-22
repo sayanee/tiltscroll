@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Tilt scroll</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+  * {box-sizing: border-box; font-family: sans-serif;}
+  body {margin: 0; padding: 0; }
+  .meta {position: fixed; width: 95%; margin: .5em; background: rgba(0, 0, 0, .8); border-radius: 10px; padding: .5em; color: white;
+  }
+  .meta p {margin: 0;}
+  .wrap {padding: .5em; width: 100%; padding-top: 200px; background: #66ABB2; background-image: -webkit-linear-gradient(top right, #DB4237, #66ABB2); background-image: -moz-linear-gradient(top right, #DB4237, #66ABB2); background-image: linear-gradient(top right, #DB4237, #66ABB2); font-size: 1.2em;
+  }
+</style>
+
+</head>
+<body>
+
+<div class="meta">
+  <h2 id="info">Touch to start</h2>
+  <p>tilt top-bottom: <span id="tiltTB"></span></p>
+  <p>tilt scroll status: <span id="status"></span></p>
+  <p>zero position: <span id="zero"></span></p>
+  <p>displacement from zero: <span id="displacement"></span></p>
+  <p>velocity: <span id="velocity"></span></p>
+</div>
+
+<div class="wrap">
+  <h1>Pale Blue Dot</h1>
+  <p>From this distant vantage point, the Earth might not seem of any particular interest. But for us, it's different. Consider again that dot. That's here. That's home. That's us. On it everyone you love, everyone you know, everyone you ever heard of, every human being who ever was, lived out their lives. The aggregate of our joy and suffering, thousands of confident religions, ideologies, and economic doctrines, every hunter and forager, every hero and coward, every creator and destroyer of civilization, every king and peasant, every young couple in love, every mother and father, hopeful child, inventor and explorer, every teacher of morals, every corrupt politician, every "superstar," every "supreme leader," every saint and sinner in the history of our species lived there – on a mote of dust suspended in a sunbeam.</p>
+
+  <p>The Earth is a very small stage in a vast cosmic arena. Think of the rivers of blood spilled by all those generals and emperors so that in glory and triumph they could become the momentary masters of a fraction of a dot. Think of the endless cruelties visited by the inhabitants of one corner of this pixel on the scarcely distinguishable inhabitants of some other corner. How frequent their misunderstandings, how eager they are to kill one another, how fervent their hatreds. Our posturings, our imagined self-importance, the delusion that we have some privileged position in the universe, are challenged by this point of pale light. Our planet is a lonely speck in the great enveloping cosmic dark. In our obscurity – in all this vastness – there is no hint that help will come from elsewhere to save us from ourselves.</p>
+
+  <p>The Earth is the only world known, so far, to harbor life. There is nowhere else, at least in the near future, to which our species could migrate. Visit, yes. Settle, not yet. Like it or not, for the moment, the Earth is where we make our stand. It has been said that astronomy is a humbling and character-building experience. There is perhaps no better demonstration of the folly of human conceits than this distant image of our tiny world. To me, it underscores our responsibility to deal more kindly with one another and to preserve and cherish the pale blue dot, the only home we've ever known.</p>
+
+  <p><em>—Carl Sagan, Pale Blue Dot: A Vision of the Human Future in Space</em></p>
+</div>
+
+<script src="../src/tiltscroll.js"></script>
+<script>
+  tiltscroll.init({
+    'speed': 100
+  });
+
+  window.addEventListener('scrolltiltStatusChange', function(event) {
+    document.getElementById('status').innerHTML = event.status;
+    document.getElementById('zero').innerHTML = event.zeroPositionAngle.toFixed(2) + '&deg; at ' + event.zeroPositionScrollHeight + 'px';
+
+    if (event.status) {
+      document.getElementById('info').innerHTML = 'Tilt device to scroll';
+    }
+
+  });
+
+  window.addEventListener('scrollTiltInProgress', function(event) {
+    document.getElementById('velocity').innerHTML = event.velocity.toFixed(2) + '&deg;';
+    document.getElementById('displacement').innerHTML = event.displacement.toFixed(2) + '&deg;';
+    document.getElementById('tiltTB').innerHTML = event.tiltTB.toFixed(2) + '&deg; at ' + event.scrollHeight.toFixed(2) + 'px';
+  });
+
+</script>
+</body>
+</html>
+
