@@ -1,4 +1,4 @@
-#tiltscroll 
+#tiltscroll  [![Build Status](https://travis-ci.org/sayanee/tiltscroll.svg?branch=master)](https://travis-ci.org/sayanee/tiltscroll)
 
 ###[demo](http://sayan.ee/tiltscroll/) - *open in mobile*
 
@@ -51,10 +51,25 @@
 	});
 	```
 
-
 ##inspiration
 
 1. [How To Make Tilt Scrolling That Doesn’t Suck](http://www.marco.org/2014/07/24/tilt-scrolling-that-doesnt-suck) by Marco Arment
 - [Tilt - acceleremeter scroll plugin](http://www.murraypicton.com/plugins/tilt/)
 - [Detecting device orientation](https://developer.mozilla.org/en-US/docs/Web/API/Detecting_device_orientation) by MDN
 - [This End Up: Using Device Orientation](http://www.html5rocks.com/en/tutorials/device/orientation/) by HTML5Rocks
+
+##Contribute
+
+Please see [`CONTRIBUTING.md`](CONTRIBUTING.md) for details.
+
+##Versioning
+
+This repository follows the [Semantic Versioning](http://semver.org/) guidelines:
+
+1. For **patches**, run `grunt bump`
+- For **minor release**, run `grunt bump:minor`
+- For **major release**, run `grunt bump:major`
+
+##License
+
+(C) Sayanee Basu 2014, released under an MIT license
