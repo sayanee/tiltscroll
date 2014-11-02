@@ -71,8 +71,9 @@
         first = true;
       }
       if (tiltscroll.status) {
-        tiltTBprev = tiltTBprev || 0; // top-bottom
         tiltTBcurr = Math.abs(90 - event.beta);
+        tiltTBprev = tiltTBprev || tiltTBcurr; // top-bottom
+
         tiltTBsmooth = smooth(tiltTBcurr, tiltTBprev, smoothingFactor);
 
         if (tiltscroll.displacement > 0 && tiltscroll.velocity < 0) {
