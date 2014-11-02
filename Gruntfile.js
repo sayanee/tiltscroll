@@ -39,22 +39,26 @@ module.exports = function(grunt) {
     },
 
     copy: {
-     main: {
-       files: [
-        {
-          expand: true,
-          cwd: 'src',
-          src: [ 'tiltscroll.js' ],
-          dest: 'dist/'
-        },
-        {
-          expand: true,
-          cwd: 'src',
-          src: [ 'tiltscroll.js' ],
-          dest: 'example/'
-        }
-      ]
-     }
+      main: {
+        files: [
+          {
+            expand: true,
+            cwd: 'src',
+            src: [ 'tiltscroll.js' ],
+            dest: 'dist/'
+          }
+        ]
+      },
+      example: {
+        files: [
+          {
+            expand: true,
+            cwd: 'dist',
+            src: [ 'tiltscroll.min.js' ],
+            dest: 'example/'
+          }
+        ]
+      }
    },
 
     jscs: {
@@ -119,8 +123,9 @@ module.exports = function(grunt) {
     'jsonlint',
     'jscs',
     'jshint',
-    'copy',
-    'uglify'
+    'copy:main',
+    'uglify',
+    'copy:example'
   ]);
 
   grunt.registerTask('check', [
