@@ -20,6 +20,8 @@
     tiltTB: 0,
     scrollHeight: 0
   };
+  var w = window;
+  var d = document;
 
   tiltscroll.init = function(options) {
 
@@ -47,26 +49,26 @@
     var noMotionTimeout;
     var tiltTBsmooth = 0;
 
-    window.addEventListener('load', function() {
+    w.addEventListener('load', function() {
 
       // when users start scrolling by finger touch
-      window.addEventListener('touchstart', function() {
+      w.addEventListener('touchstart', function() {
         tiltscroll.status = false;
         emitStatusChangeEvent();
       });
 
       // when users start scrolling by device tilt
-      window.addEventListener('touchend', function() {
+      w.addEventListener('touchend', function() {
         tiltscroll.status = true;
         emitStatusChangeEvent();
         first = false;
       });
     });
 
-    window.addEventListener('deviceorientation', function(event) {
+    w.addEventListener('deviceorientation', function(event) {
       if (!first) {
         tiltscroll.zeroPositionAngle = Math.abs(90 - event.beta);
-        tiltscroll.zeroPositionScrollHeight = document.body.scrollTop;
+        tiltscroll.zeroPositionScrollHeight = d.body.scrollTop;
         scrollHeightNorm = tiltscroll.zeroPositionScrollHeight;
         first = true;
       }
@@ -91,18 +93,18 @@
         emitScrollTiltInProgress();
 
         // scroll page
-        window.scrollTo(0, scrollHeightNorm);
+        w.scrollTo(0, scrollHeightNorm);
         tiltTBprev = tiltTBsmooth;
 
         if (Math.abs(tiltscroll.velocity) < minVelocityThreshold) {
           if (!noMotionTimeout) {
-            noMotionTimeout = window.setTimeout(function() {
+            noMotionTimeout = w.setTimeout(function() {
               tiltscroll.status = false;
               emitStatusChangeEvent();
             }, scrollTimeout);
           }
         } else {
-          window.clearTimeout(noMotionTimeout);
+          w.clearTimeout(noMotionTimeout);
           noMotionTimeout = null;
         }
       }
@@ -120,7 +122,7 @@
     statusChangeEvent.zeroPositionAngle = tiltscroll.zeroPositionAngle;
     statusChangeEvent.zeroPositionScrollHeight = tiltscroll.zeroPositionScrollHeight;
 
-    window.dispatchEvent(statusChangeEvent);
+    w.dispatchEvent(statusChangeEvent);
   }
 
   function emitScrollTiltInProgress() {
@@ -131,7 +133,7 @@
     statusChangeEvent.tiltTB = tiltscroll.tiltTB;
     statusChangeEvent.scrollHeight = tiltscroll.scrollHeight;
 
-    window.dispatchEvent(statusChangeEvent);
+    w.dispatchEvent(statusChangeEvent);
   }
 
   return tiltscroll;
