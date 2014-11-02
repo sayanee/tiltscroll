@@ -1,4 +1,5 @@
-#tiltscroll  [![Build Status](https://travis-ci.org/sayanee/tiltscroll.svg?branch=master)](https://travis-ci.org/sayanee/tiltscroll)
+#tiltscroll  [![Build Status](https://travis-ci.org/sayanee/tiltscroll.svg?branch=master)](https://travis-ci.org/sayanee/tiltscroll) [![Dependency Status](https://gemnasium.com/sayanee/tiltscroll.svg)](https://gemnasium.com/sayanee/tiltscroll)
+
 
 ###[demo](http://sayan.ee/tiltscroll/) - *open in mobile*
 
